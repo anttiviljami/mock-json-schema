@@ -9,6 +9,7 @@ Simple utility to mock example objects based on JSON schema definitions
 ## Features
 
 - [x] Minimal & deterministic. Predictable single example with no randomisation involved
+- [x] Thoroughly [tested](https://github.com/anttiviljami/mock-json-schema/blob/master/src/mock.test.ts) feature set
 - [x] Supports `example`, `default`
 - [x] Supports `anyOf`, `allOf`, `oneOf`
 - [x] Built-in examples for following string formats:
@@ -53,6 +54,8 @@ const schema = {
 
 assert.deepEqual(mock(schema), [{ id: 1, name: 'John Doe', website: 'user@example.com' }]);
 ```
+
+View more [examples](https://github.com/anttiviljami/mock-json-schema/blob/master/src/mock.test.ts)
 
 ## Contributing
 
