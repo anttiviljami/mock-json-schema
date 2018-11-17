@@ -1,7 +1,7 @@
 {
   "name": "mock-json-schema",
   "description": "Simple utility to mock example objects based on JSON schema definitions",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "author": "Viljami Kuosmanen <viljami@avoinsorsa.fi>",
   "license": "MIT",
   "keywords": [
@@ -12,7 +12,8 @@
     "example",
     "instantiate",
     "swagger",
-    "openapi"
+    "openapi",
+    "typescript"
   ],
   "homepage": "https://github.com/anttiviljami/mock-json-schema",
   "repository": {
