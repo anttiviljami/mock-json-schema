@@ -1,0 +1,62 @@
+{
+  "name": "mock-json-schema",
+  "description": "Simple utility to mock example objects based on JSON schema definitions",
+  "version": "1.0.0",
+  "author": "Viljami Kuosmanen <viljami@avoinsorsa.fi>",
+  "license": "MIT",
+  "keywords": [
+    "mock",
+    "json schema",
+    "json",
+    "schema",
+    "example",
+    "instantiate",
+    "swagger",
+    "openapi"
+  ],
+  "homepage": "https://github.com/anttiviljami/mock-json-schema",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anttiviljami/mock-json-schema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anttiviljami/mock-json-schema/issues"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "**/*.js",
+    "**/*.d.ts",
+    "!*.test.*",
+    "!**/*.test.*",
+    "!node_modules",
+    "!src",
+    "!*.config.js"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "openapi-types": "^1.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "@types/lodash": "^4.14.118",
+    "@types/node": "^10.12.9",
+    "axios-mock-adapter": "^1.15.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.14.3",
+    "source-map-support": "^0.5.9",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "tslint-microsoft-contrib": "^5.2.1",
+    "typescript": "^3.1.6"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch-build": "tsc -w",
+    "lint": "tslint --format prose --project .",
+    "prettier": "prettier --write src/** __tests__/**",
+    "test": "NODE_ENV=test jest"
+  }
+}
