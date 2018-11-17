@@ -27,8 +27,8 @@ Simple utility to mock example objects based on JSON schema definitions
 ## Usage
 
 ```javascript
-import assert from 'assert';
-import { mock } from 'mock-json-schema';
+const assert = require('assert');
+const { mock } = require('mock-json-schema');
 
 const schema = {
   type: 'array',
@@ -36,8 +36,7 @@ const schema = {
     type: 'object',
     properties: {
       id: {
-        type: 'number',
-        format: 'integer'
+        type: 'integer',
         minimum: 1,
       },
       name: {
@@ -52,7 +51,7 @@ const schema = {
   },
 };
 
-assert.deepEqual(mock(schema), [{ id: 1, name: 'John Doe', website: 'user@example.com' }]);
+assert.deepEqual(mock(schema), [{ id: 1, name: 'John Doe', email: 'user@example.com' }]);
 ```
 
 View more [examples](https://github.com/anttiviljami/mock-json-schema/blob/master/src/mock.test.ts)
