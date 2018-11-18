@@ -145,6 +145,14 @@ describe('mock', () => {
       };
       expect(mock(schema)).toStrictEqual(new Date('1970-01-01').toJSON());
     });
+
+    test('string with enum', () => {
+      const schema: SchemaLike = {
+        type: 'string',
+        enum: ['opt1', 'opt2'],
+      };
+      expect(mock(schema)).toStrictEqual('opt1');
+    });
   });
 
   describe('object', () => {
