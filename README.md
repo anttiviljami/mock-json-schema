@@ -29,8 +29,8 @@ Simple utility to mock example objects based on JSON schema definitions
 ## Usage
 
 ```javascript
-const assert = require('assert');
 const { mock } = require('mock-json-schema');
+const assert = require('assert');
 
 const schema = {
   type: 'array',

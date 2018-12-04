@@ -241,26 +241,6 @@ describe('mock', () => {
       expect(mock(schema)).toStrictEqual(['string1']);
     });
 
-    test('array with allOf', () => {
-      const schema: SchemaLike = {
-        type: 'array',
-        items: {
-          type: 'string',
-          allOf: [
-            {
-              type: 'string',
-              example: 'string1',
-            },
-            {
-              type: 'string',
-              example: 'string2',
-            },
-          ],
-        },
-      };
-      expect(mock(schema)).toStrictEqual(['string1', 'string2']);
-    });
-
     test('array with anyOf', () => {
       const schema: SchemaLike = {
         type: 'array',
@@ -400,6 +380,53 @@ describe('mock', () => {
         ],
       };
       expect(mock(schema)).toStrictEqual({ propA: 'a' });
+    });
+  });
+
+  describe('allOf', () => {
+    test('allOf combines schemas', () => {
+      const schema = {
+        allOf: [
+          {
+            type: 'string',
+          },
+          {
+            maxLength: 3,
+          },
+        ],
+      };
+      expect(mock(schema as SchemaLike)).toStrictEqual('str');
+    });
+
+    test('allOf overrides object properties', () => {
+      const schema: SchemaLike = {
+        type: 'object',
+        allOf: [
+          {
+            type: 'object',
+            properties: {
+              propA: {
+                type: 'string',
+                example: 'a',
+              },
+              propB: {
+                type: 'string',
+                example: 'b',
+              },
+            },
+          },
+          {
+            type: 'object',
+            properties: {
+              propB: {
+                type: 'string',
+                example: 'c',
+              },
+            },
+          },
+        ],
+      };
+      expect(mock(schema)).toStrictEqual({ propA: 'a', propB: 'c' });
     });
   });
 });

@@ -4,6 +4,11 @@ import { OpenAPIV3 } from 'openapi-types';
 export type SchemaLike = OpenAPIV3.SchemaObject;
 
 export function mock(schema: SchemaLike): any {
+  // allOf, merge all subschemas
+  if (schema.allOf && schema.allOf[0]) {
+    schema = _.reduce(schema.allOf, (combined, subschema: SchemaLike) => _.merge(combined, subschema), schema);
+  }
+
   // use specified example
   if (schema.example !== undefined) {
     return schema.example;
@@ -44,9 +49,9 @@ export function mock(schema: SchemaLike): any {
     }
     const examples = [];
     let example = ((items.oneOf && items.oneOf[0]) || items) as SchemaLike;
-    if (items.anyOf || items.allOf) {
+    if (items.anyOf) {
       // include one of each example for anyOf and allOf
-      for (const option of items.anyOf || items.allOf) {
+      for (const option of items.anyOf) {
         example = option as SchemaLike;
         examples.push(mock(example));
       }
