@@ -81,6 +81,7 @@ export function mock(schema: SchemaLike): any {
       'uri-template': '/path/{param}',
       'json-pointer': '/foo/bar',
       'date-time': new Date('1970-01-01').toJSON(),
+      uuid: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
       _default: 'string',
     };
     const val = formatExamples[format] || formatExamples._default;
