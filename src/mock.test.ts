@@ -398,6 +398,22 @@ describe('mock', () => {
       expect(mock(schema as SchemaLike)).toStrictEqual('str');
     });
 
+    test('schema is not altered', () => {
+      const schema = {
+        allOf: [
+          {
+            type: 'string',
+          },
+          {
+            maxLength: 3,
+          },
+        ],
+      };
+      const before = { ...schema };
+      mock(schema as SchemaLike);
+      expect(schema).toStrictEqual(before);
+    });
+
     test('allOf overrides object properties', () => {
       const schema: SchemaLike = {
         type: 'object',
@@ -427,6 +443,50 @@ describe('mock', () => {
         ],
       };
       expect(mock(schema)).toStrictEqual({ propA: 'a', propB: 'c' });
+    });
+
+    test('nested allOf', () => {
+      const schema: SchemaLike = {
+        type: 'object',
+        allOf: [
+          {
+            type: 'object',
+            allOf: [
+              {
+                type: 'object',
+                properties: {
+                  propC: {
+                    type: 'string',
+                    example: 'c',
+                  },
+                },
+              },
+              {
+                type: 'object',
+                properties: {
+                  propD: {
+                    type: 'string',
+                    example: 'd',
+                  },
+                },
+              },
+            ],
+            properties: {
+              propB: {
+                type: 'string',
+                example: 'b',
+              },
+            },
+          },
+        ],
+        properties: {
+          propA: {
+            type: 'string',
+            example: 'a',
+          },
+        },
+      };
+      expect(mock(schema)).toStrictEqual({ propA: 'a', propB: 'b', propC: 'c', propD: 'd' });
     });
   });
 });

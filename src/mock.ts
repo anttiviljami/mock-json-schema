@@ -3,11 +3,20 @@ import { OpenAPIV3 } from 'openapi-types';
 
 export type SchemaLike = OpenAPIV3.SchemaObject;
 
+function resolveAllOf(schema: SchemaLike): SchemaLike {
+  if (schema.allOf && schema.allOf[0]) {
+    schema = _.reduce(
+      schema.allOf,
+      (combined, subschema: SchemaLike) => _.merge({}, combined, resolveAllOf(subschema)),
+      schema,
+    );
+  }
+  return schema;
+}
+
 export function mock(schema: SchemaLike): any {
   // allOf, merge all subschemas
-  if (schema.allOf && schema.allOf[0]) {
-    schema = _.reduce(schema.allOf, (combined, subschema: SchemaLike) => _.merge(combined, subschema), schema);
-  }
+  schema = resolveAllOf(schema);
 
   // use specified example
   if (schema.example !== undefined) {
