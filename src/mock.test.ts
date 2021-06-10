@@ -3,10 +3,10 @@ import { mock, SchemaLike } from './index';
 describe('mock', () => {
   describe('null', () => {
     test('null primitive', () => {
-      const schema: SchemaLike = {
+      const schema = {
         type: 'null',
       };
-      expect(mock(schema)).toStrictEqual(null);
+      expect(mock(schema as SchemaLike)).toStrictEqual(null);
     });
   });
 

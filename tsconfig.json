@@ -13,6 +13,7 @@
     "outDir": "",
     "sourceMap": true,
     "declaration": true,
+    "skipLibCheck": true,
     "paths": {
       "*": [
         "node_modules/*",
