@@ -1,6 +1,5 @@
 # mock-json-schema
 [![CI](https://github.com/anttiviljami/mock-json-schema/workflows/CI/badge.svg)](https://github.com/anttiviljami/mock-json-schema/actions?query=workflow%3ACI)
-[![Dependencies](https://david-dm.org/anttiviljami/mock-json-schema.svg)](https://david-dm.org/anttiviljami/mock-json-schema)
 [![npm version](https://img.shields.io/npm/v/mock-json-schema.svg)](https://www.npmjs.com/package/mock-json-schema)
 [![npm downloads](https://img.shields.io/npm/dw/mock-json-schema)](https://www.npmjs.com/package/mock-json-schema)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/mock-json-schema/blob/master/LICENSE)
@@ -63,6 +62,3 @@ View more [examples](https://github.com/anttiviljami/mock-json-schema/blob/maste
 ## Contributing
 
 mock-json-schema is Free and Open Source Software. Issues and pull requests are more than welcome!
-
-[<img alt="The Chilicorn" src="http://spiceprogram.org/assets/img/chilicorn_sticker.svg" width="250" height="250">](https://spiceprogram.org/oss-sponsorship)
-
