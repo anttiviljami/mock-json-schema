@@ -146,6 +146,30 @@ describe('mock', () => {
       expect(mock(schema)).toStrictEqual(new Date('1970-01-01').toJSON());
     });
 
+    test('string with date format', () => {
+      const schema: SchemaLike = {
+        type: 'string',
+        format: 'date',
+      };
+      expect(mock(schema)).toStrictEqual('1970-01-01');
+    });
+
+    test('string with byte format', () => {
+      const schema: SchemaLike = {
+        type: 'string',
+        format: 'byte',
+      };
+      expect(mock(schema)).toStrictEqual('U3dhZ2dlciByb2Nrcw==');
+    });
+
+    test('string with binary format', () => {
+      const schema: SchemaLike = {
+        type: 'string',
+        format: 'binary',
+      };
+      expect(mock(schema)).toStrictEqual("\x48\x65\x6C\x6C\x6F\x20\x57\x6F\x72\x6C\x64");
+    });
+
     test('string with enum', () => {
       const schema: SchemaLike = {
         type: 'string',

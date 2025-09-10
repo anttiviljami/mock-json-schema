@@ -81,6 +81,8 @@ export function mock(schema: SchemaLike): any {
   if (type === 'string') {
     const { format } = schema;
     const formatExamples: { [format: string]: string } = {
+      binary: "\x48\x65\x6C\x6C\x6F\x20\x57\x6F\x72\x6C\x64",
+      byte: 'U3dhZ2dlciByb2Nrcw==',
       email: 'user@example.com',
       hostname: 'example.com',
       ipv4: '8.8.8.8',
@@ -89,6 +91,7 @@ export function mock(schema: SchemaLike): any {
       'uri-reference': '/path#anchor',
       'uri-template': '/path/{param}',
       'json-pointer': '/foo/bar',
+      date: '1970-01-01',
       'date-time': new Date('1970-01-01').toJSON(),
       uuid: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
       _default: 'string',
