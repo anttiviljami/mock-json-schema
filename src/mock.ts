@@ -81,7 +81,7 @@ export function mock(schema: SchemaLike): any {
   if (type === 'string') {
     const { format } = schema;
     const formatExamples: { [format: string]: string } = {
-      binary: "\x48\x65\x6C\x6C\x6F\x20\x57\x6F\x72\x6C\x64",
+      binary: '\x48\x65\x6C\x6C\x6F\x20\x57\x6F\x72\x6C\x64',
       byte: 'U3dhZ2dlciByb2Nrcw==',
       email: 'user@example.com',
       hostname: 'example.com',

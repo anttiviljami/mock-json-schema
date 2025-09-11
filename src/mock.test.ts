@@ -167,7 +167,7 @@ describe('mock', () => {
         type: 'string',
         format: 'binary',
       };
-      expect(mock(schema)).toStrictEqual("\x48\x65\x6C\x6C\x6F\x20\x57\x6F\x72\x6C\x64");
+      expect(mock(schema)).toStrictEqual('\x48\x65\x6C\x6C\x6F\x20\x57\x6F\x72\x6C\x64');
     });
 
     test('string with enum', () => {
